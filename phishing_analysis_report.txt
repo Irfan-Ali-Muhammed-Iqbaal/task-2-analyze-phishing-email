@@ -1,0 +1,27 @@
+=========================================
+PHISHING EMAIL ANALYSIS REPORT
+=========================================
+
+1. Obtain a sample phishing email:
+The raw email sample being analyzed is saved in this repository as 'phishing_sample.txt'. 
+
+2. Examine sender's email address for spoofing:
+The Display Name is set to "PayPal Security" to build false trust. However, the actual sending email address is 'security@paypa1-alert.com'. The attacker used typosquatting (replacing the letter 'l' with the number '1') to deceive the victim's eye.
+
+3. Check email headers for discrepancies:
+A review of the raw routing headers shows a major discrepancy. The 'Return-Path' (bounce@fraudsters.net) does not match the 'From' address domain. Furthermore, the 'Authentication-Results' explicitly state "spf=fail", meaning the IP address (198.51.100.42) is not authorized to send emails on behalf of the claimed domain.
+
+4. Identify suspicious links or attachments:
+The email contains a centralized call-to-action link requesting the user to log in and verify their identity. There are no file attachments in this specific sample, relying entirely on the malicious web link.
+
+5. Look for urgent or threatening language in the email body:
+Social engineering tactics are heavily utilized. The subject line begins with "URGENT:" and the body threatens that the account will be "permanently closed" if action is not taken within "24 hours." This is designed to induce panic and rush the victim's decision-making.
+
+6. Note any mismatched URLs (hover to see real link):
+The email body instructs the user to click a secure link. While the URL contains the word "paypal", the actual domain structure is deceptive: 'http://www.paypal.com.secure-login-update.net/login'. In this structure, the true top-level domain being visited is the fraudulent 'secure-login-update.net'.
+
+7. Verify presence of spelling or grammar errors:
+The email contains a generic greeting ("Dear Customer,") rather than the user's actual name, which is standard for legitimate banking emails. Additionally, the sign-off contains a subtle branding error, writing "Pay Pal" with a space instead of the official "PayPal".
+
+8. Summarize phishing traits found in the email:
+CONCLUSION: This email is definitively a phishing attempt. It relies on typosquatted sender domains, failed SPF authentication, psychological manipulation (fear and urgency), and a deceptive URL designed to harvest user credentials upon clicking.
